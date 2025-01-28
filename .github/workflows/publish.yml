@@ -22,17 +22,28 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v3.6.0
         with:
-          node-version: "16"
-      - uses: pnpm/action-setup@v2.4.1
+          node-version: "20"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          version: 6.0.2
-      - run: pnpm install
-      - run: pnpm build
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build dist
+        run: pnpm prod
+
       - name: Install zip
         uses: montudor/action-zip@v1
+
       - name: Release
         run: npx semantic-release
         env:
