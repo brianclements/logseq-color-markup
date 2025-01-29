@@ -1,11 +1,16 @@
 {
-  "name": "logseq-plugin-template-react",
-  "version": "0.0.0",
+  "name": "logseq-plugin-color-markup",
+  "version": "1.0.0",
+  "author": "Brian Clements-Tiberio",
+  "description": "Add more colors to your highlights and text.",
+  "repository": "https://github.com/clemtibs/logseq-color-markup",
   "main": "dist/index.html",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "clean": "rm -r ./dist/* || true",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preinstall": "npx only-allow pnpm"
+    "prod": "tsc && pnpm run clean && vite build"
   },
   "license": "MIT",
   "dependencies": {
@@ -37,7 +42,8 @@
     "vite-plugin-logseq": "1.1.2"
   },
   "logseq": {
-    "id": "_pengx17-logseq-template-react",
-    "icon": "./logo.svg"
+    "title": "Color Markup",
+    "id": "logseq-color-markup",
+    "icon": "./highlighter-marker.svg"
   }
 }
