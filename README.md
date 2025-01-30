@@ -22,7 +22,7 @@
 <div align="center">
 
 ![status](https://img.shields.io/badge/status-beta-e89829)
-![version](https://img.shields.io/badge/version-0.1.0-5895C9)
+![version](https://img.shields.io/badge/version-1.0.0-5895C9)
 [![tags](https://img.shields.io/github/tag/brianclements/logseq-color-markup?include_prereleases=&sort=semver&color=blue)](https://github.com/brianclements/logseq-color-markup/releases/)
 [![release](https://img.shields.io/github/v/release/brianclements/logseq-color-markup?color=5895C9)](https://github.com/brianclements/logseq-color-markup/releases)
 
@@ -34,17 +34,11 @@
 
 </div>
 
-<h2 id='summary' style='display: grid;grid-template-columns: 12fr 1fr;'>
-  Summary
-  <span style='text-align: right'><font size='2'><a href="#">^Top</a></font></span>
-</h2>
+## Summary
 
 Add more color options to your highlights and text in Logseq using slash commands.
 
-<h2 id='background' style='display: grid;grid-template-columns: 12fr 1fr;'>
-  Background
-  <span style='text-align: right'><font size='2'><a href="#">^Top</a></font></span>
-</h2>
+## Background
 
 This plugin was created to fill the gap left when converting my Workflowy maps
 to Logseq using [WF2LS](https://github.com/brianclements/wf2ls), but is
@@ -52,10 +46,7 @@ completely functional on it's own. Workflowy supports 10 colors for both
 highlights and text color, and this plugin enables that functionality with slash
 commands.
 
-<h2 id='configuration' style='display: grid;grid-template-columns: 12fr 1fr;'>
-  Configuration
-  <span style='text-align: right'><font size='2'><a href="#">^Top</a></font></span>
-</h2>
+## Configuration
 
 You can edit the color and options of the higlights, by adding and editing
 this variables in your own theme or your _custom.css_ inside the dark and light
@@ -103,10 +94,7 @@ theme.
 --mark-thickness: ;
 --mark-border-radius: 4px;
 ```
-<h2 id='screenshots' style='display: grid;grid-template-columns: 12fr 1fr;'>
-  Screenshots
-  <span style='text-align: right'><font size='2'><a href="#">^Top</a></font></span>
-</h2>
+## Screenshots
 
 Light mode:
 
@@ -135,20 +123,14 @@ Slash commands:
 
 </div>
 
-<h2 id='installation' style='display: grid;grid-template-columns: 12fr 1fr;'>
-  Installation
-  <span style='text-align: right'><font size='2'><a href="#">^Top</a></font></span>
-</h2>
+## Installation
 
 - Clone the repo
 - Open the _plugin_ option in Logseq Desktop Client
 - Select **Load unpacked plugin** in Logseq Desktop client
 - Open the _src_ folder of the repo (where "package.json" is)
 
-<h2 id='credits' style='display: grid;grid-template-columns: 12fr 1fr;'>
-  Credits
-  <span style='text-align: right'><font size='2'><a href="#">^Top</a></font></span>
-</h2>
+## Credits
 
 - Original Code:
   - Forked from [Highlighters for Logseq](https://github.com/DenaroCF/Highlighters-for-Logseq) by DenaroCF
@@ -156,9 +138,6 @@ Slash commands:
 - Design and UI Inspiration:
   - [Full House Templates](https://github.com/stdword/logseq13-full-house-plugin) by stdword
 
-<h2 id='license' style='display: grid;grid-template-columns: 12fr 1fr;'>
-  License
-  <span style='text-align: right'><font size='2'><a href="#">^Top</a></font></span>
-</h2>
+## License
 
 [MIT License](https://github.com/brianclements/logseq-color-markup/blob/main/LICENSE)
