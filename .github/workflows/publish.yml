@@ -3,21 +3,25 @@
 name: Releases
 
 env:
-  PLUGIN_NAME: logseq-plugin-template-react
+  PLUGIN_NAME: logseq-plugin-color-markup
 
 # Controls when the action will run.
 on:
-  # push:
-  #   branches:
-  #     - "master"
+  push:
+    tags:
+      - "*" # Push events to matching any tag format, i.e. 1.0, 20.15.10
+
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  # workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  release:
+  build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -38,13 +42,55 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build dist
-        run: pnpm prod
-
       - name: Install zip
         uses: montudor/action-zip@v1
 
-      - name: Release
-        run: npx semantic-release
+      - name: Build dist
+        run: |
+          pnpm prod
+          mkdir ${{ env.PLUGIN_NAME }}
+          cp README.md package.json icon.svg LICENSE ${{ env.PLUGIN_NAME }}
+          cp -r docs ${{ env.PLUGIN_NAME }}
+          mv dist ${{ env.PLUGIN_NAME }}
+          zip -r ${{ env.PLUGIN_NAME }}.zip ${{ env.PLUGIN_NAME }}
+          ls
+          echo "{name}={tag_name::$(git tag --sort version:refname | tail -n 1)}" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        id: create_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ github.ref }}
+        with:
+          allowUpdates: true
+          draft: false
+          prerelease: false
+      
+      - name: Upload zip file
+        id: upload_zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ env.PLUGIN_NAME }}.zip
+          asset_name: ${{ env.PLUGIN_NAME }}-${{ steps.build.outputs.tag_name }}.zip
+          asset_content_type: application/zip
+
+      - name: Upload package.json
+        id: upload_metadata
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./package.json
+          asset_name: package.json
+          asset_content_type: application/json
+
+      # Disabled for another day
+      # - name: Release
+        # run: npx semantic-release
+        # env:
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
