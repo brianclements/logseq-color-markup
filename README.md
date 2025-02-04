@@ -23,14 +23,13 @@
 
 ![status](https://img.shields.io/badge/status-beta-e89829)
 ![version](https://img.shields.io/badge/version-1.0.0-5895C9)
-[![tags](https://img.shields.io/github/tag/brianclements/logseq-color-markup?include_prereleases=&sort=semver&color=blue)](https://github.com/brianclements/logseq-color-markup/releases/)
-[![release](https://img.shields.io/github/v/release/brianclements/logseq-color-markup?color=5895C9)](https://github.com/brianclements/logseq-color-markup/releases)
+[![release](https://img.shields.io/github/v/release/clemtibs/logseq-color-markup?color=5895C9)](https://github.com/clemtibs/logseq-color-markup/releases)
 
 </div>
 <div align="center">
 
 [![license](https://img.shields.io/badge/License-MIT-blue)](#license)
-![downloads](https://img.shields.io/github/downloads/brianclements/logseq-color-markup/total.svg?color=D25584)
+![downloads](https://img.shields.io/github/downloads/clemtibs/logseq-color-markup/total.svg?color=D25584)
 
 </div>
 
@@ -41,7 +40,7 @@ Add more color options to your highlights and text in Logseq using slash command
 ## Background
 
 This plugin was created to fill the gap left when converting my Workflowy maps
-to Logseq using [WF2LS](https://github.com/brianclements/wf2ls), but is
+to Logseq using [WF2LS](https://github.com/clemtibs/wf2ls), but is
 completely functional on it's own. Workflowy supports 10 colors for both
 highlights and text color, and this plugin enables that functionality with slash
 commands.
@@ -125,10 +124,18 @@ Slash commands:
 
 ## Installation
 
-- Clone the repo
-- Open the _plugin_ option in Logseq Desktop Client
-- Select **Load unpacked plugin** in Logseq Desktop client
-- Open the _src_ folder of the repo (where "package.json" is)
+### From Logseq Marketplace (recommended):
+
+- Click **"..."** and open the **Plugins** section (or press `t p`)
+- Click on the **Marketplace**
+- On the **Plugins** tab search for **Color Markup** plugin and click install
+
+### Manually
+
+- Enable **Developer mode** in **...** → **Settings** → **Advanced**
+- Download the latest plugin release in a raw .zip archive from [here](https://github.com/clemtibs/logseq-color-markup/releases/latest) and unzip it
+- Go to the **"..."** → **Plugins**, click **"Load unpacked plugin"** and point to the unzipped plugin (where "package.json" is)
+- Note that every new plugin release needs to be updated manually
 
 ## Credits
 
@@ -140,4 +147,4 @@ Slash commands:
 
 ## License
 
-[MIT License](https://github.com/brianclements/logseq-color-markup/blob/main/LICENSE)
+[MIT License](https://github.com/clemtibs/logseq-color-markup/blob/main/LICENSE)
