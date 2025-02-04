@@ -7,7 +7,7 @@
 </h1>
 
 <p align="center">
-  <img align="center" width="15%" src="./highlighter-marker.svg"/>
+  <img align="center" width="15%" src="./icon.svg"/>
 </p>
 
 <p align="center">
